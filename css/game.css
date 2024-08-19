@@ -1,0 +1,185 @@
+/*Disposição de cores*/
+
+:root {
+
+    --background-color: #fff;
+    --font-color: #333;
+
+    --button-color:#acadab94;
+
+    --card-color:#ffff92;
+    --card-border-color:#333; 
+    
+}
+
+.dark-mode:root {
+
+    --background-color: #333;
+    --font-color: #fff;
+
+    --button-color:#3cc368;
+
+    --card-color:#c8cac7;
+}
+
+/*Change theme button*/
+
+.changeTheme{
+    margin-top: 15px;
+}
+.checkbox{
+    opacity: 0;
+    position: absolute;
+}
+
+.label{
+    background-color: #00000073;
+    border-radius: 50px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+
+    transform: scale(2.3);
+    
+}
+
+.label .ball{
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top:2px;
+    left: 2px;
+
+    height: 22px;
+    width: 22px;
+
+    transform: translateX(0px);
+    transform: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(24px);
+}
+
+.fa-moon {
+    color: #e6aa05;
+}
+
+.fa-sun {
+    color: #ee9105;
+}
+
+
+
+/* Head of page */
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 50px;
+    color: var(--font-color);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content:space-around;
+    gap: 10px;
+    width: 100%;
+    padding: 40px;
+    font-size: 1.5em;
+    
+}
+
+header p {
+    font-size: 2em;
+    position: absolute;
+    
+}
+
+button {
+  
+    padding: 30px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: var(--button-color);
+    
+}
+
+
+/*Propriedades das carta */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:15px;
+    width: 100%;
+    max-width: 700px;
+    margin: auto auto; 
+
+}
+
+.card {
+    aspect-ratio: 3/4;
+   width: 100%;
+   border-radius: 10px;
+   position: relative;
+   transition: all 400ms ease;
+   transform-style: preserve-3d;
+   border-radius: 10px;   
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position: center;
+    border: 2px solid var(--card-border-color);
+    border-radius: 10px;
+    transition: all 500ms ease-in-out;
+
+
+   
+}
+
+.front {
+ transform: rotateY(180deg);
+ background-size:cover;
+
+
+}
+
+.back {
+    background-color: var(--card-color);
+    background-image: url(../images/dogpaw.png);
+    background-repeat: no-repeat;
+    background-size:60%; 
+    backface-visibility: hidden;
+}
+
+.reveal-card {
+    transform: rotateY(180deg);
+
+}
+
+.disabled-card {
+    filter:saturate(0);
+    opacity: 0.5;
+}
+
+
+/*Media Query - for responsive layout*/
+

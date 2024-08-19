@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/game.css">
+
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+
+    <script defer src="../js/game.js"></script>
+    <script defer src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+
+    <title> Memory Game| Gameplay </title>
+</head>
+<body>
+    
+    <main>
+
+        <div class="changeTheme">
+            <input type="checkbox" class="checkbox" id="chk"/>
+            <label class="label" for="chk">
+                <i class = "fas fa-sun"></i>
+                <i class = "fas fa-moon"></i>
+                <div class="ball"></div>
+            </label>
+        </div>
+
+        <header>
+
+            <h1><span class="player"></span></h1>
+
+            <p><span id="timer">   00</span></p>
+
+            <button id="pause-button">PAUSE GAME</button>
+
+        </header>
+
+
+        <div class="grid"></div>
+    </main>
+
+</body>
+</html>
