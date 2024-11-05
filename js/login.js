@@ -15,29 +15,22 @@ checkbox.addEventListener('click', () => {
         return localStorage.setItem('Theme', 'light');
                 
 
-    }  return localStorage.setItem('Theme', 'Dark'),
-                changeCheckbox();
+    }  return localStorage.setItem('Theme', 'dark')             
 
-                
+})
 
-});
 
-//busca tema no localStorage
+//Busca tema salvo no localStorage
 let themeOption = localStorage.getItem('Theme');
-if (themeOption === 'Dark'){
-    theme.classList.toggle('dark-mode');
+if (themeOption === 'dark'){
+    theme.classList.toggle('dark-mode')
+    ativarCheckbox(checkbox)
 }
 
-// altera estado do checkbox 
-function changeCheckbox () {
-    checkbox = true;
+//Check no checkbox 
+function ativarCheckbox(check) {
+    check.checked = true;
 }
-
-
-
-
-
-
 
 
 // Função que habilita botão para envio do form
@@ -52,7 +45,6 @@ function validateInput({ target }) {
 //Função que salva o nome do jogador no navegador e redireciona a navegação. 
 const handleSubmit = (event) => {
     event.preventDefault();
-    
     localStorage.setItem('player', input.value);
     window.location = './game.html';
 }

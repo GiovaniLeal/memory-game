@@ -1,71 +1,53 @@
-/*Disposição de cores*/
+/*Layout inicial - (320 x 640)  */
 
+/*Disposição de cores*/
 :root {
 
     --background-color: #fff;
     --font-color: #333;
-
     --button-color:#acadab94;
-
     --card-color:#ffff92;
     --card-border-color:#333; 
     
 }
 
-.dark-mode:root {
-
+.dark-mode{
     --background-color: #333;
     --font-color: #fff;
-
     --button-color:#3cc368;
-
     --card-color:#c8cac7;
 }
 
 /*Change theme button*/
-
-.changeTheme{
-    margin-top: 15px;
-}
 .checkbox{
     opacity: 0;
     position: absolute;
 }
-
 .label{
     background-color: #00000073;
     border-radius: 50px;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 5px;
     position: relative;
-    height: 26px;
+    height: 25px;
     width: 50px;
+    transform: scale(1.5);
 
-    transform: scale(2.3);
-    
 }
 
 .label .ball{
     background-color: #fff;
     border-radius: 50%;
     position: absolute;
-    top:2px;
-    left: 2px;
-
-    height: 22px;
-    width: 22px;
-
+    height: 21px;
+    width: 21px;
     transform: translateX(0px);
-    transform: transform 0.2s linear;
 }
-
 .checkbox:checked + .label .ball {
-    transform: translateX(24px);
+    transform: translateX(20px);
 }
 
 .fa-moon {
@@ -81,65 +63,155 @@
 /* Head of page */
 main {
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
-    width: 100%;
-    background-color: var(--background-color);
+    width: 100vw;
     min-height: 100vh;
+    background-color: var(--background-color);
     align-items: center;
-    justify-content: center;
-    padding: 20px 20px 50px;
     color: var(--font-color);
 }
 
 header {
+
     display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content:space-around;
-    gap: 10px;
-    width: 100%;
-    padding: 40px;
-    font-size: 1.5em;
+    justify-content: center;
+    gap: 3.3em;
+    min-height: 50px;
+    font-size: 1em;
     
 }
 
 header p {
     font-size: 2em;
-    position: absolute;
+    
     
 }
 
 button {
-  
-    padding: 30px;
-    font-size: 1.5em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 46px;
+    font-size: 2.5em;
     cursor: pointer;
+    border-radius: 20px;
+    background-color: var(--button-color);  
+}
+button:hover{
+    background-color:#f87b42;
+}
+
+/*popup PAUSE BT*/
+.dark-mode .container {
+    color: #333;
+}
+.container {
+    display: none;
+    align-content: center;
+    background-color: #e4e4e4;
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    width: 70%;
+    height: 300px;
+    box-shadow: 5px 10px 18px #888;
     border-radius: 30px;
-    background-color: var(--button-color);
+    transform:translate(-50%,-50%) ;
+    z-index: 4;
+}
+
+.mensagem{
+    text-align: center;
+    font-size: 3em;
+}
+.containerBt{
+    display:flex;
+    align-items:center ;
+    width: 200px;
+    border-radius: 13px;
+    background-color: #eb9999;
+    font-size: 2em;
+    cursor: pointer;
+    margin : 12px auto;
+    padding: 10px;
+}
+
+.containerBt:hover{
+    background-color: #ee665c;
+}
+
+/*end game - mensagem*/
+.containerEnd {
+    display: none;
+    background-color: #fcfcae;
+    position: absolute;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: fit-content;
+    box-shadow: 5px 10px 18px #888;
+    border-radius: 30px;
+    transform:translate(-50%,-50%);
+    text-align: center;
+    z-index: 5;
+}
+
+.dark-mode .containerEnd {
+    background-color: #888;
+    box-shadow: 5px 10px 18px #050505c7; 
+}
+#mensagemFinal{
+    font-size: 2em;
+    margin: 10px auto 30px;
+}
+.containerEnd button{
+    display:grid;
+    width: 50%;
+    border-radius: 13px;
+    background-color: #eb9999;
+    color: #eee;
+    font-size: 2.2em;
+    cursor: pointer;
+    margin : 4% auto;
+    padding: 10px;  
+}
+
+button:hover {
+    background-color: #ee665c;
+    border: 1px solid black;
+    color: black;
     
 }
 
 
-/*Propriedades das carta */
+/*Propriedades das cartas */
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap:15px;
-    width: 100%;
-    max-width: 700px;
-    margin: auto auto; 
+    grid-template-columns: repeat(3,1fr);
+    gap:10px;
+    width: 70%;
 
 }
 
+.grid > div:nth-child(2){
+    grid-column: 3/4;
+}
+
+
+
 .card {
     aspect-ratio: 3/4;
-   width: 100%;
+   width: auto;
    border-radius: 10px;
    position: relative;
    transition: all 400ms ease;
    transform-style: preserve-3d;
-   border-radius: 10px;   
+   border-radius: 10px; 
+   cursor: pointer; 
+   box-shadow: 5px 5px 10px #888;
 }
 
 .face {
@@ -181,5 +253,100 @@ button {
 }
 
 
-/*Media Query - for responsive layout*/
+/*Media Query - WIDTH*/
+@media (min-width:500px) {
+    .label {
+        transform: scale(1.8);
+    }
+    .grid{
+        grid-template-columns: repeat(4,1fr);
+        max-height: 915px;  
+    }
+
+    .grid > div:nth-child(2){
+        grid-column: 2;
+    }
+
+    header{
+        gap: 10em;
+    }
+    header h1{
+        font-size: 3em;
+    }
+    header p {
+        font-size: 3em;
+    }
+    
+    .container {
+        top:60%
+    }
+    .conteinerEnd {
+        top:53%
+    }    
+}
+
+@media (min-width:800px) {
+    .main{
+        gap:300px;
+    }
+    .container {
+        top: 55%;
+        max-width: 600px;
+        height: 400px;
+    }
+    .containerBt {
+        width: 60%;
+    }
+    .label {
+        margin-top: 50%;
+        transform: scale(3);
+    }
+    header{
+        gap:12em ;
+    }
+    header h1{
+        font-size: 5em;
+    }
+    header p {
+        font-size: 5em;
+    }
+    .grid{
+        width: 80%; 
+    }
+    button {
+        font-size: 5em; 
+    }
+
+}
+/*Media Query - HEIGTH*/
+
+@media  (min-width:1000px){
+    .label {
+        margin-top: 40%;
+        transform: scale(2.5);
+    }
+    header{
+        gap:20em ;
+    }
+    header h1{
+        font-size: 3em;
+    }
+    header p {
+        font-size: 3em;
+    }
+    .grid{
+        width: 45%; 
+    }
+    button {
+       font-size: 3em; 
+    }
+}
+
+
+
+
+
+
+
+
 

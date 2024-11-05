@@ -1,37 +1,87 @@
-
+//Variáveis 
 const grid = document.querySelector('.grid');
 const spanPlayer = document.querySelector('.player');
 let firstCard = '';
 let secondCard ='';
 
+let theme = document.querySelector('body');
+let checkbox = document.querySelector('.checkbox');
+const pause = document.querySelector('#pause-button')
+const stopWatch = document.querySelector('#timer');
+const retomar = document.querySelector('#pause');
+const fimDeJogo = document.querySelector('.containerEnd');
+const replayBt = document.querySelector('#replayBt');
+const inicio = document.querySelector('#inicioBt');
+const about = document.querySelector('#aboutBt');
+let seconds = 0;
+let minutes = 0;
+let interval;
 
 
-//Função que muda tema da página 
-const html = document.querySelector('body')
-const chk = document.querySelector('.chk')
 
+//TIMER ==== cronometro do jogo
 
-
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme == 'dark') {
-    document.body.classList.add('dark-mode');
+function startTime () {
+    watch();
+    interval = setInterval (watch,1000);
 }
+    //Formatação de zeros
+const digitZero = (digit) => {
+    if (digit < 10) {
+        return `0${digit}`;
+    } return digit
+}
+    //Formatação do relógio
+function watch() {
+    seconds ++;
+    if (seconds === 60) {
+        minutes++;
+        seconds = 0;
+    }
+    stopWatch.innerHTML = digitZero (minutes) + ':' + digitZero(seconds);
+}
+    //Botão pause
+ pause.addEventListener ('click',() =>{
+    var alert = document.querySelector('.container');
+    clearInterval(interval);
+    alert.style.display="block";
+    pause.style.display="none";
 
-chk.addEventListener('change',function() {
-    html.classList.toggle('dark-mode')
 
-    let theme = 'ligth';
-    if (document.body.classList.add('dark-mode')){
-        theme = 'dark'
-    }   
-
-    localStorage.setItem("theme", theme);
-})
+    })
+retomar.addEventListener('click',()=>{
+    startTime()
+    var alert = document.querySelector('.container');
+    alert.style.display='none'
+    pause.style.display="block";
+})  
 
 
 
+//DARK MODE - Busca tema salvo no localStorage
+let themeOption = localStorage.getItem('Theme');
+if (themeOption === 'dark'){
+    theme.classList.toggle('dark-mode')
+    ativarCheckbox(checkbox)
+}
+    //Check no checkbox 
+function ativarCheckbox(check) {
+    check.checked = true;
+}
+    //insere a classe dark-mode na tag body
+checkbox.addEventListener('click', () => {
+    theme.classList.toggle('dark-mode');
+    //salva opção escolhida no localStorage 
+    if(!theme.classList.contains('dark-mode')) {
+        return localStorage.setItem('Theme', 'light');
+                
 
-//Criando várias cartas 
+    }  return localStorage.setItem('Theme', 'dark')             
+
+});
+
+
+//GAME = Criando várias cartas 
 const character = [
     'alci01',
     'alci02',
@@ -49,13 +99,28 @@ const createElement = (tag, className) => {
 //Função de fim de jogo
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
-
-    if (disabledCards.length == 16) {
-        clearInterval(this.loop);
-        alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML}`);
-      }
+    if (disabledCards.length == 8) {
+        clearInterval(interval);
+        fimDeJogo.style.display='block';
+        pause.style.display="none";
+    }
 
 };
+    //Botão replay
+replayBt.onclick = function () {
+    window.location.reload(true)
+}
+    //Botão Inicio
+inicioBt.onclick = function (){
+    window.location.href = 'index.html'
+ }   
+    //Botão Sobre Alcione
+aboutBt.onclick = function (){
+    window.location.href = 'index.html'
+}
+
+
+
 
 //Verificação de atributos identicos entre cartas
 const checkCards = () => {
@@ -136,35 +201,6 @@ const loadGame = () => {
         grid.appendChild(card);         
     });
 };
-
-//cronometro do jogo
-const stopWatch = document.querySelector('#timer');
-let seconds = 0;
-let minutes = 0;
-let interval;
-
-function startTime () {
-    watch();
-    interval = setInterval (watch,1000);
-}
-
-const digitZero = (digit) => {
-    if (digit < 10) {
-        return `0${digit}`;
-    } return digit
-}
-
-function watch() {
-    seconds ++;
-
-    if (seconds === 60) {
-        minutes++;
-        seconds = 0;
-    }
-    stopWatch.innerHTML = digitZero (minutes) + ':' + digitZero(seconds);
-
-}
-
 
 
 //Carregar jogo

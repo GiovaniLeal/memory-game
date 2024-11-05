@@ -26,9 +26,9 @@ body {
 header {
     display: flex;
     width: 100%;
-    align-items:center;
     justify-content: center;
-    min-height: 200px;
+    min-height: 50px;
+    margin-top: 2em;
 
 }
 
@@ -88,12 +88,14 @@ header {
 
 body {
     background-color: var(--background-body);
+    
 }
 .login-form{
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center; 
+    min-height: 500px;
   
      
 }
@@ -103,26 +105,28 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    width: 60%;
-    height: 70vh;
+    width: 95%;
+    height: 86vh;
     background-color: var(--backgrounf-form);
-    border-radius: 100px;
+    border-radius: 20px;
+    
     
 
 }
 
 .login-header img {
     position:relative;
-    max-width: 200px;
-    min-width:100px;
-    margin-bottom: 50px;
+    width: 33%;
+    margin-bottom: 10%;
 
     
 }
 .login-header h1 {
     color: var(--color-font);
-    font-size: 4em ;
+    font-size: 2.8em ;
     font-family:"Luckiest Guy", cursive;
+    align-self: center;
+  
    
 
 }
@@ -140,10 +144,10 @@ body {
     border-radius: 8px;
     color: var(--color-font);
     font-size: 2em;
-    max-width: 300px;
+    max-width: 80%;
     outline: none;
     padding: 15px;
-    width: 100%;
+    width: 75%;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -155,13 +159,46 @@ body {
     color: var(--color-text-button);
     cursor: pointer;
     font-size: 2em;
-    max-width: 300px;
+    max-width: 80%;
     padding: 15px;
-    width: 100%;
+    width: 75%;
 }
 
 .login_button:disabled {
     background-color: var(--color-button-disabled);
     color: var(--color-button-text-desabled);
     cursor: auto;
+}
+
+/*MEDIA QUERY*/
+@media (min-width:500px) {
+    .login-header img {
+        width: 10rem;
+        margin-bottom: 5%;
+    }
+    .login-header h1 {
+        font-size: 4rem;
+    }
+    
+}
+
+@media (min-width:1300px){
+    .login-header img {
+        width: 5rem;
+        margin-bottom: 1em;
+    }
+    .login-header h1 {
+        font-size: 4rem;
+    }
+    .login-header p {
+        font-size: 2.5rem;
+    }
+    .login-form input {
+        font-size: 2.5em;
+        max-width: 8em;
+    }
+    .login-form button {
+        font-size: 2.5em;
+        max-width: 8em;
+    }
 }
