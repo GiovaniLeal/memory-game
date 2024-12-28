@@ -25,6 +25,12 @@
 </ol>
 <p> É possível pausar o jogo clicando no botão "pause" localizado abaixo do conjunto de cartas. Ao clicar nesse botão o crônometro será congelado e voltará apenas quando o jogo for retomado.</p>
 
+<div align="center"> 
+  <img src="https://github.com/user-attachments/assets/1f5bda3e-d7c2-4098-9dcb-c41dd1dd13ae" width="500">
+</div>
+
+
+
 <h2>Próximos passos</h2>
 <p>Esse projeto ficará ainda mais completo após a implementação dos seguintes recursos: </p>
 <ul>
