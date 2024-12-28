@@ -114,10 +114,7 @@ replayBt.onclick = function () {
 inicioBt.onclick = function (){
     window.location.href = 'index.html'
  }   
-    //Botão Sobre Alcione
-aboutBt.onclick = function (){
-    window.location.href = 'index.html'
-}
+
 
 
 
