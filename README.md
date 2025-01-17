@@ -11,7 +11,7 @@
 <ul>
   <li>Layout responsivo através de media query</li>
   <li>Seleção de layout pelo usuário (White ou Dark mode)</li>
-  <li>Envio de informações entre páginas através do localstorege</li>
+  <li>Envio de informações entre páginas através do localstorage</li>
   <li>Crônometro de tempo de jogo</li>
 </ul>
 <p>Este projeto foi criado com fins educativos para a prática de lógica de programação utilizando a linguagem Javascript</p>
